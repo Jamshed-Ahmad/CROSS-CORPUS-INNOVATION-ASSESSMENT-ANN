@@ -55,7 +55,7 @@ class EvidenceRecord(BaseModel):
     source_url: Optional[str] = None
     passage_location: Optional[str] = None
     evidence_type: str  # "limitation", "solution", "method", "advantage"
-    extraction_method: str = "rule_or_llm"
+    extraction_method: str = "rule_based_keyword_span"
     confidence: Optional[float] = 1.0
 
 class CrossCorpusRelationship(BaseModel):
@@ -67,6 +67,10 @@ class CrossCorpusRelationship(BaseModel):
     supporting_evidence_ids: List[str] = Field(default_factory=list)
     extraction_method: str = "semantic_and_citation"
     confidence: Optional[float] = None
+    # ANN-predicted relevance probability P(Related | Paper, Patent) ∈ [0, 1]
+    # Populated by PaperPatentANN after the retrieval stage.
+    # None means ANN model was not available or pair was not evaluated.
+    ann_relevance_score: Optional[float] = None
 
 class CandidateGap(BaseModel):
     gap_id: str
@@ -92,7 +96,7 @@ class RecommendationRecord(BaseModel):
     potential_risks: List[str] = Field(default_factory=list)
     actionability: str
     limitations: str
-    generation_model_version: str = "mock-1.0"
+    generation_model_version: str = "ann-1.0"
     prompt_version: str = "v1"
 
 # API Request and Response Schemas

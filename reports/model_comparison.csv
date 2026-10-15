@@ -1,5 +1,0 @@
-Model,Accuracy,Precision,Recall,F1-Score,ROC-AUC,PR-AUC,5-Fold CV F1
-Logistic Regression,0.8133,0.8406,0.9508,0.8923,0.781,0.9419,0.9195
-Random Forest,0.8267,0.8429,0.9672,0.9008,0.8126,0.9281,0.9187
-Gradient Boosting,0.8133,0.873,0.9016,0.8871,0.7939,0.9313,0.912
-Support Vector Machine,0.8133,0.8406,0.9508,0.8923,0.8138,0.9445,0.9249

@@ -53,10 +53,8 @@ class Settings(BaseSettings):
     EMBEDDING_MODEL_NAME: str = os.getenv("EMBEDDING_MODEL_NAME", "sentence-transformers/all-MiniLM-L6-v2")
     VECTOR_DIMENSION: int = 384
     
-    # LLM Settings
-    LLM_PROVIDER: str = os.getenv("LLM_PROVIDER", "mock")  # "mock" or "openai" or "anthropic"
-    LLM_MODEL_NAME: str = os.getenv("LLM_MODEL_NAME", "gpt-4o-mini")
-    LLM_API_KEY: str = os.getenv("LLM_API_KEY", "")
+    # Custom ANN Model Configuration (replaces all LLM-based generation)
+    ANN_MODEL_PATH: str = os.getenv("ANN_MODEL_PATH", "models/ann_model.keras")
     
     # Ranking Weights for Multidimensional Innovation Assessment (default rubric)
     WEIGHT_NOVELTY: float = 0.25
