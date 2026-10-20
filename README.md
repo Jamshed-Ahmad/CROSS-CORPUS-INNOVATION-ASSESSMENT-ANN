@@ -234,7 +234,4 @@ python -m pytest backend/tests/unit/test_pipeline_unit.py -v
 
 ---
 
-## ⚠️ Operational & Legal Disclaimer
 
-> [!CAUTION]
-> **Prototype Disclaimer**: The system is a research and decision-support prototype. It MUST NOT claim to establish legal patentability, legal freedom to operate, automated patent filing, or guaranteed commercial success. It clearly distinguishes preliminary computational assessments from decisions requiring legal, technical, intellectual-property, or commercial expertise.
