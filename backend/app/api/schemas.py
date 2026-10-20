@@ -19,6 +19,11 @@ class ResearchPaper(BaseModel):
     source_provider: str = "mock"
     retrieved_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     dataset_version: str = "1.0.0"
+    # Research relevance and quality metrics (0 - 100)
+    relevance_score: Optional[float] = None
+    research_value_score: Optional[float] = None
+    relevance_tier: Optional[str] = None  # Highly Recommended, Strongly Relevant, Relevant, Weakly Relevant
+    why_relevant: Optional[str] = None
 
 class Patent(BaseModel):
     patent_id: str
@@ -35,6 +40,15 @@ class Patent(BaseModel):
     source_provider: str = "mock"
     retrieved_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     dataset_version: str = "1.0.0"
+    # Patent relevance and prior-art alignment metrics (0 - 100)
+    relevance_score: Optional[float] = None
+    relevance_tier: Optional[str] = None
+    technical_match: Optional[str] = None
+    matched_problem: Optional[str] = None
+    matched_technology: Optional[str] = None
+    matched_application: Optional[str] = None
+    why_relevant: Optional[str] = None
+    claim_evidence: List[str] = Field(default_factory=list)
 
 class ResearchIdea(BaseModel):
     idea_id: str
@@ -46,6 +60,14 @@ class ResearchIdea(BaseModel):
     application_area: str
     constraints: List[str] = Field(default_factory=list)
     created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    # Structured decomposition components
+    research_problem: Optional[str] = None
+    method_technique: Optional[str] = None
+    target_domain: Optional[str] = None
+    target_object: Optional[str] = None
+    desired_outcome: Optional[str] = None
+    salient_keywords: List[str] = Field(default_factory=list)
+    technical_terms: List[str] = Field(default_factory=list)
 
 class EvidenceRecord(BaseModel):
     evidence_id: str
@@ -67,21 +89,31 @@ class CrossCorpusRelationship(BaseModel):
     supporting_evidence_ids: List[str] = Field(default_factory=list)
     extraction_method: str = "semantic_and_citation"
     confidence: Optional[float] = None
-    # ANN-predicted relevance probability P(Related | Paper, Patent) ∈ [0, 1]
-    # Populated by PaperPatentANN after the retrieval stage.
-    # None means ANN model was not available or pair was not evaluated.
+    # Neural relationship probability P(Related | Paper, Patent) in [0, 1]
+    # Populated by DualTowerCrossAttentionRelationshipModel.
     ann_relevance_score: Optional[float] = None
+    relationship_probability: Optional[float] = None
 
 class CandidateGap(BaseModel):
     gap_id: str
     idea_id: str
     gap_description: str
-    gap_type: str  # "unresolved_research_problem", "patent_limitation", "missing_tech_combination"
+    gap_type: str  # "TECHNICAL_GAP", "RESEARCH_TO_APPLICATION_GAP", "COMBINATION_GAP", "PATENT_COVERAGE_GAP", "APPLICATION_GAP"
     supporting_evidence_ids: List[str] = Field(default_factory=list)
     contradictory_evidence_ids: List[str] = Field(default_factory=list)
     reasoning: str
     evidence_strength: float = 0.0
     validation_status: str = "candidate"
+    # Evidence-grounded structured gap fields
+    gap_statement: Optional[str] = None
+    why_gap: Optional[str] = None
+    existing_research: Optional[str] = None
+    existing_patent_landscape: Optional[str] = None
+    missing_capability: Optional[str] = None
+    research_opportunity: Optional[str] = None
+    gap_score: Optional[float] = None  # 0 - 100
+    confidence_score: Optional[float] = None  # 0 - 100
+    evidence_passages: List[Dict[str, Any]] = Field(default_factory=list)
 
 class RecommendationRecord(BaseModel):
     recommendation_id: str
@@ -118,5 +150,6 @@ class AnalysisResponse(BaseModel):
     gaps: List[CandidateGap]
     recommendations: List[RecommendationRecord]
     evidence: List[EvidenceRecord]
+    scores: Optional[Dict[str, float]] = None
     metadata: Dict[str, Any] = Field(default_factory=dict)
     warnings: List[str] = Field(default_factory=list)

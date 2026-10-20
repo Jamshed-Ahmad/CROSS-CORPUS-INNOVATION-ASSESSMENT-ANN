@@ -2,7 +2,7 @@
 
 ## 1. High-Level Pipeline Flow Architecture
 
-```
+```text
                                ┌───────────────────────────────────┐
                                │       User Research Idea          │
                                └─────────────────┬─────────────────┘
@@ -28,55 +28,64 @@
                                               │
                                               ▼
                                ┌───────────────────────────────────┐
-                               │  Normalization & Profile Logging  │
+                               │  Normalization & Text Cleaning    │
                                └─────────────────┬─────────────────┘
                                                  │
                                                  ▼
                                ┌───────────────────────────────────┐
-                               │           Deduplication           │
+                               │       HYBRID RAG RETRIEVAL        │
+                               │                                   │
+                               │  BM25 (Sparse Lexical)            │
+                               │  TF-IDF (Domain Keyword Weight)   │
+                               │  Sentence-Transformer (Dense)     │
+                               │  FAISS Vector Index (MIP / L2)    │
                                └─────────────────┬─────────────────┘
                                                  │
                                                  ▼
                                ┌───────────────────────────────────┐
-                               │ Hybrid Candidate Retrieval        │
-                               │ (BM25 + FAISS Vector Embeddings)  │
+                               │   Reciprocal Rank Fusion (RRF)    │
+                               │   RRF(d) = Σ 1 / (60 + r_m(d))    │
                                └─────────────────┬─────────────────┘
                                                  │
                                                  ▼
                                ┌───────────────────────────────────┐
-                               │     Reciprocal Rank Fusion (RRF)  │
+                               │     Candidate Pair Generator      │
+                               │  (Top-K retrieval without O(N*M)) │
                                └─────────────────┬─────────────────┘
                                                  │
                                                  ▼
                                ┌───────────────────────────────────┐
-                               │ Cross-Corpus Matching Engine      │
-                               │ (Paper-to-Patent Relationships)   │
+                               │   DUAL-TOWER + CROSS-ATTENTION    │
+                               │   RELATIONSHIP MODEL (PyTorch)    │
+                               │                                   │
+                               │  - Paper Tower Encoder            │
+                               │  - Patent Tower Encoder           │
+                               │  - Multi-Head Cross-Attention     │
+                               │  - 10 RAG Features Fusion         │
+                               │  - Relationship Prob ∈ [0, 1]     │
                                └─────────────────┬─────────────────┘
                                                  │
                                                  ▼
                                ┌───────────────────────────────────┐
-                               │ Rationale & Evidence Extractor    │
-                               │ (Limitations, Solutions, Methods) │
+                               │  RESEARCH GAP DETECTION NETWORK   │
+                               │  (Multi-Task Neural Network)      │
+                               │                                   │
+                               │  - Feature Saliency Attention     │
+                               │  - Head 1: Gap Score ∈ [0, 1]     │
+                               │  - Head 2: Gap Type (5 Classes)   │
+                               │  - Head 3: Confidence Score       │
                                └─────────────────┬─────────────────┘
                                                  │
                                                  ▼
                                ┌───────────────────────────────────┐
-                               │ Idea-Conditioned Gap Detection    │
+                               │    Composite Innovation Scorer    │
+                               │  (Novelty, Feasibility, Impact)   │
                                └─────────────────┬─────────────────┘
                                                  │
                                                  ▼
                                ┌───────────────────────────────────┐
-                               │ 6-Factor Innovation Scorer (N,R,G)│
-                               └─────────────────┬─────────────────┘
-                                                 │
-                                                 ▼
-                               ┌───────────────────────────────────┐
-                               │ Evidence-Grounded Recommendations │
-                               └─────────────────┬─────────────────┘
-                                                 │
-                                                 ▼
-                               ┌───────────────────────────────────┐
-                               │ Strict Evidence Validator         │
+                               │     Strict Evidence Validator     │
+                               │  (Hallucination & Provenance Gate)│
                                └─────────────────┬─────────────────┘
                                                  │
                                                  ▼
@@ -88,26 +97,44 @@
 
 ---
 
-## 2. Operational Modes
+## 2. Architectural Separation of Responsibilities
 
-### MOCK MODE (`DATA_MODE=mock`)
-- **Purpose**: Offline development, unit testing, deterministic evaluation, and CI pipelines without API key dependencies.
-- **Data Source**: Local JSON fixtures (`data/fixtures/papers.json` & `data/fixtures/patents.json`).
-- **Behavior**: Deterministic mock paper and patent datasets with pre-calculated claims and keywords.
+The framework clearly separates five fundamental responsibilities:
 
-### LIVE MODE (`DATA_MODE=live`)
-- **Purpose**: Real-world cross-corpus innovation assessment.
-- **Data Sources**:
-  - Research Papers: **OpenAlex API** (`https://api.openalex.org/works`)
-  - Patents: **European Patent Office OPS API** (`https://ops.epo.org/3.2/rest-services/published-data/search`)
-- **Behavior**: Calls external APIs live, reconstructs abstracts from OpenAlex inverted index, retrieves EPO OPS publication records, preserves exact provider provenance, handles partial success gracefully (`status="partial_success"`).
+1. **RAG Retrieval Responsibility:**
+   - **Role:** Finds relevant papers, patents, and evidence passages without predicting relationships or claiming research gaps.
+   - **Components:** OpenAlex API, EPO OPS API, BM25, TF-IDF, Sentence Transformer (`all-MiniLM-L6-v2`), FAISS, Reciprocal Rank Fusion (RRF).
+
+2. **Relationship Learning Responsibility:**
+   - **Role:** Learns the technological and semantic interaction between candidate paper-patent pairs.
+   - **Components:** `DualTowerCrossAttentionRelationshipModel` (`PaperTowerEncoder`, `PatentTowerEncoder`, `BiDirectionalCrossAttention`, RAG feature fusion).
+   - **Output:** $P(\text{Related} \mid \text{Paper}, \text{Patent}) \in [0, 1]$.
+
+3. **Research Gap Detection Responsibility:**
+   - **Role:** Discovers and scores potential research gaps from cross-corpus coverage, unresolved technical limitations, combination rarity, and relationship scores.
+   - **Components:** `ResearchGapDetectionNetwork` (Multi-Task heads for Gap Probability, Gap Category, and Grounding Confidence).
+
+4. **Opportunity Assessment Responsibility:**
+   - **Role:** Quantifies innovation potential, technical feasibility, and commercial prior-art differentiation.
+   - **Components:** `InnovationScorer`.
+
+5. **Evidence Grounding & Validation Responsibility:**
+   - **Role:** Guarantees strict factual provenance; prevents unsupported or hallucinated claims by verifying that every finding has verbatim supporting text and source URLs.
+   - **Components:** `EvidenceValidationService`.
 
 ---
 
 ## 3. Core Framework Modules
 
-1. **`app.ingestion`**: Adapters for OpenAlex, EPO OPS (with OAuth caching), and Mock fixtures.
-2. **`app.retrieval`**: BM25 keyword indexer, FAISS dense vector retriever (SentenceTransformer `all-MiniLM-L6-v2`), and RRF rank fusion.
-3. **`app.analysis`**: Query parsing, cross-corpus similarity matrix computation, rationale extraction, gap detection, and 6-factor scoring ($N, R, G, E, F, D$).
-4. **`app.services`**: `AnalysisPipelineService` orchestrator & `EvidenceValidationService`.
-5. **`app.api`**: FastAPI endpoints (`/api/ideas/analyze`, `/api/health`, `/api/search/papers`, `/api/search/patents`).
+1. **`app.ingestion`**: Adapters for OpenAlex, EPO OPS (OAuth2 token negotiation, caching), and local fixtures.
+2. **`app.retrieval`**: BM25 keyword indexer, TF-IDF sparse retriever, FAISS dense vector retriever, and RRF rank fusion.
+3. **`app.features`**: Non-leaking relationship feature extraction (10 RAG signals) and gap candidate feature extraction (12 cross-corpus signals).
+4. **`app.models`**: PyTorch neural models:
+   - `paper_encoder.py` (`PaperTowerEncoder`)
+   - `patent_encoder.py` (`PatentTowerEncoder`)
+   - `cross_attention.py` (`BiDirectionalCrossAttention`)
+   - `relationship_model.py` (`DualTowerCrossAttentionRelationshipModel`)
+   - `gap_detection_model.py` (`ResearchGapDetectionNetwork`)
+5. **`app.analysis`**: `RelationshipAnalyzer`, `GapDetector`, and `InnovationScorer`.
+6. **`app.services`**: `AnalysisPipelineService` orchestrator and `EvidenceValidationService`.
+7. **`app.api`**: FastAPI endpoints (`/api/ideas/analyze`, `/api/health`, `/api/search/papers`, `/api/search/patents`).

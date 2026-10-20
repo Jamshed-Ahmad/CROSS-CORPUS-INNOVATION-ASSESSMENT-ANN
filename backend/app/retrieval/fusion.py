@@ -15,7 +15,11 @@ def reciprocal_rank_fusion(
 
     for rank_list in rankings:
         for rank, item in enumerate(rank_list, start=1):
-            doc_id, _, doc_type = item
+            if len(item) >= 3:
+                doc_id, _, doc_type = item[0], item[1], item[2]
+            else:
+                doc_id, _ = item[0], item[1]
+                doc_type = "document"
             doc_types[doc_id] = doc_type
             rrf_scores[doc_id] = rrf_scores.get(doc_id, 0.0) + (1.0 / (k + rank))
 

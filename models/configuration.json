@@ -1,0 +1,58 @@
+{
+  "model_version": "2.0.0-neural",
+  "architecture": "Siamese Dual-Tower Cross-Attention + Multi-Task Research Gap Detection Network",
+  "pretrained_encoder": "sentence-transformers/all-MiniLM-L6-v2",
+  "encoder_dim": 384,
+  "cross_attention_dim": 256,
+  "cross_attention_heads": 4,
+  "rag_feature_dim": 10,
+  "gap_candidate_dim": 12,
+  "relationship_model_path": "models/relationship_model/relationship_model.pt",
+  "gap_model_path": "models/gap_detection_model/gap_detection_model.pt",
+  "relationship_features": [
+    "bm25_score",
+    "tfidf_similarity",
+    "semantic_similarity",
+    "faiss_distance",
+    "rrf_score",
+    "jaccard_similarity",
+    "token_overlap_ratio",
+    "title_similarity",
+    "temporal_gap_years",
+    "cpc_ipc_overlap"
+  ],
+  "gap_features": [
+    "relationship_score",
+    "academic_density",
+    "patent_density",
+    "academic_patent_ratio",
+    "limitation_frequency",
+    "combination_rarity",
+    "semantic_novelty",
+    "retrieval_reciprocal_rank",
+    "evidence_strength",
+    "temporal_velocity",
+    "domain_breadth",
+    "unresolved_signal"
+  ],
+  "gap_classes": [
+    "TECHNICAL_GAP",
+    "RESEARCH_TO_APPLICATION_GAP",
+    "COMBINATION_GAP",
+    "PATENT_COVERAGE_GAP",
+    "APPLICATION_GAP",
+    "INSUFFICIENT_EVIDENCE"
+  ],
+  "random_seed": 42,
+  "training_date": "2026-10-16",
+  "test_metrics": {
+    "relationship_model": {
+      "accuracy": 0.7632,
+      "precision": 0.8125,
+      "recall": 0.8125,
+      "f1": 0.8125,
+      "roc_auc": 0.7232,
+      "mrr": 0.8906
+    }
+  }
+}

@@ -1,0 +1,222 @@
+[
+  {
+    "patent_id": "EP-3982109-A1",
+    "title": "Quantum-Classical Hybrid Circuit for Combinatorial Molecular Docking Search",
+    "abstract": "A quantum computing device and classical pre-processor for optimizing molecular conformation binding states using variational quantum eigensolvers on Hamiltonian matrices.",
+    "claims": "A hybrid computing system for molecular docking comprising a classical front-end and a quantum processor executing parameterized circuits.",
+    "publication_date": "2023-08-09",
+    "publication_year": 2023,
+    "classifications": "G06N 10/00, G16C 20/00",
+    "assignee": "Quantum Pharma Labs Ltd",
+    "source_url": "https://worldwide.espacenet.com/patent/search?q=pn%3DEP3982109A1"
+  },
+  {
+    "patent_id": "US-11842801-B2",
+    "title": "System and Method for Automated Molecular Substructure Affinity Scoring Using Dynamic Spatial Graphs",
+    "abstract": "A computerized system configured to execute dynamic 3D graph convolution on ligand-protein receptor complexes to calculate binding affinity energy state vectors for pharmaceutical optimization.",
+    "claims": "A computing method comprising receiving 3D structural coordinate data of a protein ligand pair and applying message-passing graph operations.",
+    "publication_date": "2023-11-14",
+    "publication_year": 2023,
+    "classifications": "G16B 15/00, G16B 40/00",
+    "assignee": "BioTech Innovations Corp",
+    "source_url": "https://patents.google.com/patent/US11842801B2/en"
+  },
+  {
+    "patent_id": "US-11900122-B1",
+    "title": "Real-Time Transformer-Assisted Ligand Pose Optimization in Cryo-EM Density Maps",
+    "abstract": "An apparatus using vision transformers to fit molecular structures into cryo-electron microscopy electron density maps for rapid computational drug screening.",
+    "claims": "An image processing system comprising a GPU memory storing cryo-EM map grids and a multi-head attention neural network calculating electron density fit vectors.",
+    "publication_date": "2024-02-20",
+    "publication_year": 2024,
+    "classifications": "G16B 20/00, G06T 7/00",
+    "assignee": "CryoStructure Technologies Inc",
+    "source_url": "https://patents.google.com/patent/US11900122B1/en"
+  },
+  {
+    "patent_id": "US-11651120-B2",
+    "title": "Cross-Corpus Knowledge Graph Extraction and Prior-Art Alert Engine",
+    "abstract": "An enterprise software framework for continuously mapping research publications against published patent claims to calculate real-time freedom-to-operate indicators.",
+    "claims": "An automated text analysis system comprising a crawler, a relation extraction NLP engine, and a prior-art distance visualizer.",
+    "publication_date": "2023-05-18",
+    "publication_year": 2023,
+    "classifications": "G06F 16/93, G06Q 50/18",
+    "assignee": "IP Analytics Global Inc",
+    "source_url": "https://patents.google.com/patent/US11651120B2/en"
+  },
+  {
+    "patent_id": "US-11720815-B2",
+    "title": "Dual-Encoder Graph Attention Recommender System for Cross-Domain Item Retrieval",
+    "abstract": "A recommender system utilizing dual-encoder bipartite graph neural networks with contrastive loss to map heterogeneous user-item interaction histories into metric space.",
+    "claims": "A recommender server configured to compute user embeddings and item embeddings using cross-attention message passing over bipartite graph edges.",
+    "publication_date": "2023-08-08",
+    "publication_year": 2023,
+    "classifications": "G06F 16/9535, G06N 3/045",
+    "assignee": "RecSys Global Corp",
+    "source_url": "https://patents.google.com/patent/US11720815B2/en"
+  },
+  {
+    "patent_id": "US-11880765-B2",
+    "title": "Contrastive Representation Learning for Multimodal Single-Cell Target Identification",
+    "abstract": "A machine-learned pipeline computing unified phenotypic embeddings from transcriptomic reads and high-content microscopy imaging for target validation.",
+    "claims": "A computational biology system applying cross-modal projection heads to maximize mutual information across cell morphology and RNA sequencing.",
+    "publication_date": "2024-01-23",
+    "publication_year": 2024,
+    "classifications": "G16B 25/00, G16B 40/20",
+    "assignee": "OmniGenomics Inc",
+    "source_url": "https://patents.google.com/patent/US11880765B2/en"
+  },
+  {
+    "patent_id": "EP-4112345-A1",
+    "title": "Hierarchical Graph Neural Network Architecture for Molecular Bioactivity Prediction",
+    "abstract": "Methods for predicting enzymatic inhibitory concentration by partitioning chemical graphs into functional motif subgraphs and aggregating node representations.",
+    "claims": "A method for generating motif-level molecular descriptors using gated recurrent graph convolutions.",
+    "publication_date": "2023-01-04",
+    "publication_year": 2023,
+    "classifications": "G16B 15/00, C12Q 1/68",
+    "assignee": "EuroPharma AI SA",
+    "source_url": "https://worldwide.espacenet.com/patent/search?q=pn%3DEP4112345A1"
+  },
+  {
+    "patent_id": "US-11954312-B2",
+    "title": "Transformer-Based Pre-training for Macro-Molecular Binding Conformation Classification",
+    "abstract": "Self-supervised geometric transformer model pre-trained on millions of crystal structure coordinates to predict ligand binding affinity pockets.",
+    "claims": "A protein foundation model executing 3D rotary position embeddings on atomic coordinate clouds.",
+    "publication_date": "2024-04-09",
+    "publication_year": 2024,
+    "classifications": "G16B 20/00, G06N 3/08",
+    "assignee": "DeepProtein Discovery Ltd",
+    "source_url": "https://patents.google.com/patent/US11954312B2/en"
+  },
+  {
+    "patent_id": "US-11634567-B2",
+    "title": "Quantum Variational Optimization for High-Dimensional Chemical Space Traversal",
+    "abstract": "Apparatus combining parameterized quantum circuits with classical active learning to discover novel chemical leads with specified pharmacokinetic constraints.",
+    "claims": "A quantum-assisted drug discovery workflow mapping SMILES representations to unitary quantum gates.",
+    "publication_date": "2023-04-25",
+    "publication_year": 2023,
+    "classifications": "G06N 10/00, G16C 20/00",
+    "assignee": "Quantum Chem Inc",
+    "source_url": "https://patents.google.com/patent/US11634567B2/en"
+  },
+  {
+    "patent_id": "EP-4209999-A1",
+    "title": "Automated Patent-to-Literature Citation Graph Alignment and Freedom-to-Operate Mapping",
+    "abstract": "A distributed system parsing claims from global patent offices and linking claim entities to peer-reviewed scientific literature to flag freedom-to-operate obstacles.",
+    "claims": "A computer-implemented method using entity disambiguation to construct a directed citation graph between patent claims and scholarly works.",
+    "publication_date": "2023-07-12",
+    "publication_year": 2023,
+    "classifications": "G06F 16/93, G06Q 50/18",
+    "assignee": "LexisPatent Technologies",
+    "source_url": "https://worldwide.espacenet.com/patent/search?q=pn%3DEP4209999A1"
+  },
+  {
+    "patent_id": "US-11789012-B2",
+    "title": "Session-Based Recommender System Employing Temporal Graph Attention Networks",
+    "abstract": "Systems and methods for dynamic user preference tracking across streaming sessions using temporal decay graph attention networks.",
+    "claims": "A real-time recommendation server calculating next-item probability vectors over dynamic session graphs.",
+    "publication_date": "2023-10-17",
+    "publication_year": 2023,
+    "classifications": "G06F 16/9535, G06N 3/04",
+    "assignee": "NextItem AI Inc",
+    "source_url": "https://patents.google.com/patent/US11789012B2/en"
+  },
+  {
+    "patent_id": "US-11823456-B2",
+    "title": "Multimodal Transformer Architecture for Phenotypic Screening and Cytotoxicity Estimation",
+    "abstract": "Deep neural architecture combining fluorescent microscopy image representations with gene expression profiles to detect compound cellular toxicity.",
+    "claims": "A predictive toxicology system computing safety scores from cross-attention between cell image encodings and transcriptomic profiles.",
+    "publication_date": "2023-11-21",
+    "publication_year": 2023,
+    "classifications": "G16B 25/00, G06T 7/00",
+    "assignee": "Cellular Phenomics Corp",
+    "source_url": "https://patents.google.com/patent/US11823456B2/en"
+  },
+  {
+    "patent_id": "EP-4056789-A1",
+    "title": "Graph Convolutional Network System for Predicting Small Molecule Toxicity",
+    "abstract": "System using edge-conditioned graph convolutions to identify reactive metabolic substructures in drug candidate molecules.",
+    "claims": "A computerized toxicology prediction engine mapping atomic adjacency matrices to adverse outcome pathways.",
+    "publication_date": "2022-09-14",
+    "publication_year": 2022,
+    "classifications": "G16B 15/00, G16C 20/00",
+    "assignee": "ToxPredict Bio",
+    "source_url": "https://worldwide.espacenet.com/patent/search?q=pn%3DEP4056789A1"
+  },
+  {
+    "patent_id": "US-11912345-B2",
+    "title": "Sequence-to-Structure Transformer for De Novo Antibody Paratope Design",
+    "abstract": "Generative transformer pipeline designing CDR3 loop sequences complementary to target antigen epitope surfaces.",
+    "claims": "An automated antibody design system employing structural cross-attention to generate high-affinity binders.",
+    "publication_date": "2024-03-05",
+    "publication_year": 2024,
+    "classifications": "G16B 20/00, C07K 16/00",
+    "assignee": "ImmunoDesign Labs",
+    "source_url": "https://patents.google.com/patent/US11912345B2/en"
+  },
+  {
+    "patent_id": "US-11756789-B2",
+    "title": "Noisy Intermediate-Scale Quantum Circuit for Chemical Reaction Transition State Search",
+    "abstract": "Quantum computing methods for finding minimum energy reaction paths on potential energy surfaces using variational algorithms with error mitigation.",
+    "claims": "A quantum co-processor configured to execute active space reduction for chemical activation barrier calculation.",
+    "publication_date": "2023-09-12",
+    "publication_year": 2023,
+    "classifications": "G06N 10/00, G16C 20/00",
+    "assignee": "Quantum Transition Technologies",
+    "source_url": "https://patents.google.com/patent/US11756789B2/en"
+  },
+  {
+    "patent_id": "EP-4187654-A1",
+    "title": "Semantic Semantic-Web Integration for Scientific Publications and Intellectual Property",
+    "abstract": "Methods for harmonizing ontologies between biomedical journal databases and multi-national patent registries using RDF knowledge graphs.",
+    "claims": "An ontology alignment server identifying semantic equivalences between MeSH subject headings and CPC codes.",
+    "publication_date": "2023-05-31",
+    "publication_year": 2023,
+    "classifications": "G06F 16/93, G06F 40/30",
+    "assignee": "OntoPatent Knowledge Systems",
+    "source_url": "https://worldwide.espacenet.com/patent/search?q=pn%3DEP4187654A1"
+  },
+  {
+    "patent_id": "US-11845678-B2",
+    "title": "Context-Aware Multi-Task Recommender Engine with Counterfactual Debiasing",
+    "abstract": "Multi-task neural network for e-commerce and media recommendation utilizing inverse propensity scoring to eliminate exposure bias.",
+    "claims": "A recommendation server computing debiased click-through and conversion probabilities using shared representations.",
+    "publication_date": "2023-12-19",
+    "publication_year": 2023,
+    "classifications": "G06F 16/9535, G06N 3/08",
+    "assignee": "PersonalizeAI Inc",
+    "source_url": "https://patents.google.com/patent/US11845678B2/en"
+  },
+  {
+    "patent_id": "US-11899999-B2",
+    "title": "Machine Learning Prediction of Drug Synergy from Paired Genomic Profiling",
+    "abstract": "Combinatorial therapy predictor taking gene mutation profiles and molecular fingerprints to forecast synergistic drug interaction scores.",
+    "claims": "A cancer therapy optimization engine computing Bliss excess synergy scores using dual-branch neural encoders.",
+    "publication_date": "2024-02-13",
+    "publication_year": 2024,
+    "classifications": "G16B 25/00, A61K 31/00",
+    "assignee": "Synergy Therapeutics Corp",
+    "source_url": "https://patents.google.com/patent/US11899999B2/en"
+  },
+  {
+    "patent_id": "EP-4156789-A1",
+    "title": "Scalable Vector Search Engine for Prior-Art Patent Similarity Identification",
+    "abstract": "Distributed database indexing dense document embeddings using Hierarchical Navigable Small World graphs for sub-second patent similarity queries.",
+    "claims": "An approximate nearest neighbor patent search cluster partitioning vector indices across memory banks.",
+    "publication_date": "2023-04-12",
+    "publication_year": 2023,
+    "classifications": "G06F 16/93, G06F 16/28",
+    "assignee": "VectorIP Systems",
+    "source_url": "https://worldwide.espacenet.com/patent/search?q=pn%3DEP4156789A1"
+  },
+  {
+    "patent_id": "US-11933456-B2",
+    "title": "Cross-Attention Graph Transformer for Enzyme-Substrate Catalytic Site Identification",
+    "abstract": "Deep learning system modeling 3D spatial catalytic residue coordinates to predict enzymatic cleavage efficiency and substrate selectivity.",
+    "claims": "A bio-computational system computing catalytic propensity maps using geometric distance embeddings.",
+    "publication_date": "2024-03-19",
+    "publication_year": 2024,
+    "classifications": "G16B 15/00, G16B 20/00",
+    "assignee": "CatalyticAI Technologies",
+    "source_url": "https://patents.google.com/patent/US11933456B2/en"
+  }
+]

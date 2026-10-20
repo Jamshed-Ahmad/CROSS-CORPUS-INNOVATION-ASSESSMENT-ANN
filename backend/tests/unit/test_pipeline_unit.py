@@ -80,9 +80,10 @@ def test_epo_auth_manager():
     assert token is None
 
 def test_end_to_end_pipeline():
-    service = AnalysisPipelineService()
+    service = AnalysisPipelineService(data_mode="mock")
     req = AnalysisRequest(
-        idea_text="Using graph neural networks and dynamic spatial attention to predict drug-target affinity",
+        idea_text="Graph neural networks and spatial attention for molecular drug target affinity prediction",
+        data_mode="mock",
         top_k=3
     )
     res = service.run_analysis(req)

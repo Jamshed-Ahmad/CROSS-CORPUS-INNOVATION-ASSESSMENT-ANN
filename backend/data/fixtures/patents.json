@@ -1,5 +1,101 @@
 [
   {
+    "patent_id": "PAT-AGRI-001",
+    "application_id": "US17/654,321",
+    "title": "Hyperspectral Imaging System and Convolutional Neural Network for In-Field Crop Foliage Disease Detection",
+    "abstract": "A mobile agricultural imaging apparatus utilizing calibrated hyperspectral narrow-band sensors and deep convolutional neural networks to identify plant fungal infections and leaf blight prior to visible symptom manifestation.",
+    "claims": [
+      "1. An agricultural inspection system comprising: an optical sensor capturing reflectance across at least 64 discrete spectral bands between 400 nm and 1000 nm; an edge processor executing spatial-spectral convolution; and a classifier outputting localized infection probability maps.",
+      "2. The system of claim 1, wherein image acquisition requires ambient illumination calibrated above 500 lux with minimal wind disturbance below 15 km/h.",
+      "3. The apparatus of claim 1, wherein spectral vegetation indices exclude thermal infrared anomaly correction."
+    ],
+    "description": "Discloses hyperspectral leaf analysis. A major limitation is susceptibility to variable natural sunlight variations and specular reflectance from wet foliage, leading to false-positive blight classifications under uncontrolled field conditions.",
+    "publication_date": "2023-08-15",
+    "classifications": [
+      "A01B 79/00",
+      "G01N 21/31",
+      "G06V 20/10"
+    ],
+    "assignee": "AgriTech Vision Corp",
+    "citations": ["US10987654B2"],
+    "source_url": "https://worldwide.espacenet.com/patent/search?q=pn%3DUS17654321A",
+    "source_provider": "EPO OPS Mock",
+    "retrieved_at": "2026-10-16T12:00:00+00:00",
+    "dataset_version": "2.0.0"
+  },
+  {
+    "patent_id": "PAT-EDGE-001",
+    "application_id": "EP4123456A1",
+    "title": "Hardware-Accelerated Transformer Attention Engine with Dynamic Pruning for Low-Power Edge Devices",
+    "abstract": "A low-power neural processing unit architecture incorporating dynamic attention head pruning and integer quantization to execute transformer self-attention algorithms under sub-5-watt power budgets.",
+    "claims": [
+      "1. A computing apparatus for transformer acceleration comprising: a systolic multiplier-accumulator array; a sparsity controller pruning attention heads below a threshold magnitude; and a quantized memory bus operating at 4-bit precision.",
+      "2. The apparatus of claim 1, wherein self-attention sequence length is hardware-constrained to a fixed maximum buffer of 512 tokens.",
+      "3. The computing apparatus of claim 1, wherein dynamic pruning reduces memory footprint by discarding low-variance key-query projection vectors."
+    ],
+    "description": "Discloses integer transformer acceleration. However, embodiments require offline static calibration and experience accuracy loss exceeding 6% on autoregressive sequences exceeding 512 tokens.",
+    "publication_date": "2024-03-12",
+    "classifications": [
+      "G06N 3/063",
+      "G06F 17/16",
+      "G06F 1/32"
+    ],
+    "assignee": "EdgeSilicon Microelectronics Ltd",
+    "citations": ["EP3891234A1"],
+    "source_url": "https://worldwide.espacenet.com/patent/search?q=pn%3DEP4123456A1",
+    "source_provider": "EPO OPS Mock",
+    "retrieved_at": "2026-10-16T12:00:00+00:00",
+    "dataset_version": "2.0.0"
+  },
+  {
+    "patent_id": "PAT-CARD-001",
+    "application_id": "US16/987,123",
+    "title": "Deep Learning Diagnostic Apparatus for Real-Time Cardiac Arrhythmia and Infarction Risk Detection",
+    "abstract": "A wearable biosensor and neural diagnostic system that evaluates continuous multi-lead electrocardiogram (ECG) telemetry to predict onset of myocardial infarction and malignant ventricular arrhythmias.",
+    "claims": [
+      "1. A medical monitoring apparatus comprising: a plurality of thoracic surface electrodes; an analog-to-digital converter; and a neural network model classifying cardiac rhythm anomalies from continuous R-R interval time-series.",
+      "2. The apparatus of claim 1, wherein classification requires continuous uninterrupted lead signal for at least 12 seconds.",
+      "3. The system of claim 1, wherein arrhythmia prediction excludes motion artifact filtering during vigorous physical activity."
+    ],
+    "description": "Embodiments provide real-time ECG analysis. A documented constraint is high sensitivity to electromyographic noise caused by patient ambulation, creating false alarms during active movement.",
+    "publication_date": "2023-10-04",
+    "classifications": [
+      "A61B 5/0402",
+      "G16H 50/20",
+      "G06N 3/08"
+    ],
+    "assignee": "CardioHealth Systems Inc",
+    "citations": ["US10543210B2"],
+    "source_url": "https://worldwide.espacenet.com/patent/search?q=pn%3DUS16987123A",
+    "source_provider": "EPO OPS Mock",
+    "retrieved_at": "2026-10-16T12:00:00+00:00",
+    "dataset_version": "2.0.0"
+  },
+  {
+    "patent_id": "PAT-PROP-001",
+    "application_id": "US17/111,222",
+    "title": "Automated Valuation System for Residential Real Estate Using Spatial Proximity Neural Regression",
+    "abstract": "A computer-implemented platform combining GIS spatial parcel topologies, municipal tax records, and multi-modal property images to predict fair market transactional values for residential housing.",
+    "claims": [
+      "1. A computer system for property valuation comprising: a database storing geo-referenced property parcel boundaries; a feature engineering engine computing distance to municipal amenities; and a neural regression model generating a price prediction interval.",
+      "2. The system of claim 1, wherein automated valuation requires at least three verified comparable arm's-length sales within a 1.5-kilometer radius within the preceding 90 days.",
+      "3. The system of claim 1, wherein pricing models omit interior structural deterioration not visible in exterior satellite photography."
+    ],
+    "description": "Describes automated real estate appraisal. A key limitation is reliance on exterior geographic features, failing to account for unrecorded interior remodeling or unpermitted renovations.",
+    "publication_date": "2023-05-22",
+    "classifications": [
+      "G06Q 50/16",
+      "G06Q 10/04",
+      "G06F 16/29"
+    ],
+    "assignee": "GeoValuation Analytics LLC",
+    "citations": ["US10234567B1"],
+    "source_url": "https://worldwide.espacenet.com/patent/search?q=pn%3DUS17111222A",
+    "source_provider": "EPO OPS Mock",
+    "retrieved_at": "2026-10-16T12:00:00+00:00",
+    "dataset_version": "2.0.0"
+  },
+  {
     "patent_id": "PATENT-001",
     "application_id": "US17/890,123",
     "title": "System and Method for Automated Molecular Substructure Affinity Scoring Using Dynamic Spatial Graphs",
@@ -17,10 +113,7 @@
       "C12Q 1/68"
     ],
     "assignee": "BioTech Innovations Corp",
-    "citations": [
-      "PAPER-001",
-      "PATENT-002"
-    ],
+    "citations": ["PAPER-001", "PATENT-002"],
     "source_url": "https://patents.google.com/patent/US11842801B2/en",
     "source_provider": "Google Patents Mock",
     "retrieved_at": "2026-09-30T19:23:57.403523+00:00",
@@ -42,9 +135,7 @@
       "G06T 7/00"
     ],
     "assignee": "CryoStructure Technologies Inc",
-    "citations": [
-      "PAPER-002"
-    ],
+    "citations": ["PAPER-002"],
     "source_url": "https://patents.google.com/patent/US11900122B1/en",
     "source_provider": "PatentsView Mock",
     "retrieved_at": "2026-09-30T19:23:57.403539+00:00",
@@ -58,42 +149,39 @@
     "claims": [
       "1. A hybrid computing system for molecular docking comprising a classical front-end for initial candidate filtering and a quantum processor executing parameterized circuit iterations."
     ],
-    "description": "Discloses hybrid quantum-classical docking. The system faces coherence decay when molecule size exceeds 50 heavy atoms.",
-    "publication_date": "2023-08-09",
+    "description": "The invention accelerates conformational search using quantum variational gates. However, current circuit coherence times restrict simulation to molecules with under 15 qubits.",
+    "publication_date": "2023-09-05",
     "classifications": [
       "G06N 10/00",
-      "G16C 20/00"
+      "G16B 15/30"
     ],
-    "assignee": "Quantum Pharma Labs Ltd",
-    "citations": [
-      "PAPER-003"
-    ],
-    "source_url": "https://patents.google.com/patent/EP3982109A1/en",
-    "source_provider": "EPO Mock",
-    "retrieved_at": "2026-09-30T19:23:57.403553+00:00",
+    "assignee": "QuantumBio Labs Europe",
+    "citations": ["PAPER-003"],
+    "source_url": "https://worldwide.espacenet.com/patent/search?q=pn%3DEP3982109A1",
+    "source_provider": "EPO OPS Mock",
+    "retrieved_at": "2026-09-30T19:23:57.403551+00:00",
     "dataset_version": "1.0.0"
   },
   {
     "patent_id": "PATENT-004",
-    "application_id": "US17/654,987",
-    "title": "Cross-Corpus Knowledge Graph Extraction and Prior-Art Alert Engine",
-    "abstract": "A enterprise software framework for continuously mapping research publications against published patent claims to calculate real-time freedom-to-operate indicators.",
+    "application_id": "US17/789,654",
+    "title": "Solid-State Electrolyte Interface Layer for High-Capacity Lithium-Metal Batteries",
+    "abstract": "A protective composite solid electrolyte interphase (SEI) architecture preventing dendritic lithium formation in rechargeable solid-state secondary batteries.",
     "claims": [
-      "1. An automated text analysis system comprising a crawler, a relation extraction NLP engine, and a prior-art distance visualizer."
+      "1. An electrochemical cell comprising: a lithium-metal anode; a composite polymer-ceramic electrolyte; and an ultrathin interfacial passivation film.",
+      "2. The cell of claim 1, wherein critical current density is limited to operating temperatures above 45 degrees Celsius."
     ],
-    "description": "The framework correlates technical keywords and entity graphs. A reported drawback is high false-positive overlap metrics when domain taxonomies differ between WIPO and arXiv classifications.",
-    "publication_date": "2023-05-18",
+    "description": "Provides high energy density storage. However, interfacial impedance increases substantially after 200 charge-discharge cycles at room temperature.",
+    "publication_date": "2024-01-18",
     "classifications": [
-      "G06F 16/93",
-      "G06Q 50/18"
+      "H01M 10/056",
+      "H01M 4/13"
     ],
-    "assignee": "IP Analytics Global Inc",
-    "citations": [
-      "PAPER-004"
-    ],
-    "source_url": "https://patents.google.com/patent/US11651120B2/en",
+    "assignee": "NextGen Battery Corp",
+    "citations": [],
+    "source_url": "https://patents.google.com/patent/US11912345B2/en",
     "source_provider": "Google Patents Mock",
-    "retrieved_at": "2026-09-30T19:23:57.403568+00:00",
+    "retrieved_at": "2026-09-30T19:23:57.403562+00:00",
     "dataset_version": "1.0.0"
   }
 ]

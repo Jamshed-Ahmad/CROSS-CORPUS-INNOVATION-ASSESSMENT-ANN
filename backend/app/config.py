@@ -53,8 +53,9 @@ class Settings(BaseSettings):
     EMBEDDING_MODEL_NAME: str = os.getenv("EMBEDDING_MODEL_NAME", "sentence-transformers/all-MiniLM-L6-v2")
     VECTOR_DIMENSION: int = 384
     
-    # Custom ANN Model Configuration (replaces all LLM-based generation)
-    ANN_MODEL_PATH: str = os.getenv("ANN_MODEL_PATH", "models/ann_model.keras")
+    # Neural Model Configurations (PyTorch)
+    RELATIONSHIP_MODEL_PATH: str = os.getenv("RELATIONSHIP_MODEL_PATH", "models/relationship_model/relationship_model.pt")
+    GAP_MODEL_PATH: str = os.getenv("GAP_MODEL_PATH", "models/gap_detection_model/gap_detection_model.pt")
     
     # Ranking Weights for Multidimensional Innovation Assessment (default rubric)
     WEIGHT_NOVELTY: float = 0.25
